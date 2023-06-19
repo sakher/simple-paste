@@ -154,11 +154,10 @@
             var clipboardData = e.clipboardData || window.clipboardData;
             var pastedData = clipboardData.getData('text/html') || clipboardData.getData('Text');
 
+          // Convert HTML to Markdown
+            var markdown = turndownService.turndown(pastedData);
             // Check if the pasted data is HTML or raw text
             if (clipboardData.getData('text/html')) {
-                // Convert HTML to Markdown
-                var markdown = turndownService.turndown(pastedData);
-
                 // Convert Markdown to HTML
                 var html = showdownConverter.makeHtml(markdown);
             } else {
@@ -192,7 +191,7 @@
             copyOriginalButtonAccordion.style.display = 'block'; // show accordion
             originalContent.style.display = 'block';
             copyOriginalButton.style.display = 'block';
-            markdownSource.textContent = markdown;
+            markdownSource.innerHTML = '<pre>' + markdown + '</pre>';
             copyMarkdownButtonAccordion.style.display = 'block'; // show accordion
             markdownSource.style.display = 'block';
             copyMarkdownButton.style.display = 'block';
