@@ -40,11 +40,13 @@
         padding: 20px;
       }
         #outputArea, #originalContent, #markdownSource {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
+          display: none;
+          margin-top: 20px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          max-width: 800px; /* or any other value you want */
+          overflow-x: auto; /* enable horizontal scroll when necessary */
         }
 
         .copyButton:hover {
@@ -130,6 +132,8 @@
     footer {
       width: 100%;
       text-align: center;
+      position: relative;  /* Makes the footer follow the normal flow of the document */
+
     }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
